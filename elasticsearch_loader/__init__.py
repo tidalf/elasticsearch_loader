@@ -15,6 +15,9 @@ from click_stream import Stream
 from .iter import bulk_builder, grouper, json_lines_iter
 from .parsers import csv, json, parquet
 
+tracer = logging.getLogger('elasticsearch')
+tracer.setLevel(logging.CRITICAL) # or desired level
+tracer.addHandler(logging.FileHandler('indexer.log'))
 
 def single_bulk_to_es(bulk, config, attempt_retry):
     bulk = bulk_builder(bulk, config)
