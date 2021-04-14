@@ -21,7 +21,7 @@ def bulk_builder(bulk, config):
         source['type']=config['type']
 
         body = {'_index': config['index'],
-                '_type': config['type'],
+        #        '_type': config['type'],
                 '_source': source}
 
         if config['id_field']:
